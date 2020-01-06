@@ -1,10 +1,8 @@
 (ns by.cash-exchange.api.api
   (:require
-    [compojure.core :refer :all]
-    [compojure.route :as route]))
+    [compojure.core :refer :all]))
 
 (defroutes app-routes
-           (GET "api" [])
            ; find best exchange rate. Return collection (address, coordinates, name, exchange rate, total sum)
            ;Could be ordered by destination
            ;by default returns 10 best

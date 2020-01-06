@@ -1,6 +1,6 @@
-(ns services.core-test
+(ns tm-proxy-service.core-test
   (:require [clojure.test :refer :all]
-            [services.core :refer :all]))
+            [tm-proxy-service.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
