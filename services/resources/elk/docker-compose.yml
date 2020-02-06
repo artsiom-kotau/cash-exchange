@@ -1,0 +1,45 @@
+version: '3'
+
+networks:
+  elk:
+
+volumes:
+  elasticsearch:
+    driver: local
+
+services:
+
+  elasticsearch:
+    environment:
+      http.host: 0.0.0.0
+      transport.host: 127.0.0.1
+    image: elasticsearch:7.5.2
+    networks:
+      elk: null
+    ports:
+      - 9200:9200
+    restart: unless-stopped
+
+  logstash:
+    image: logstash:7.5.2
+    depends_on:
+      - elasticsearch
+    networks:
+      elk: null
+    ports:
+      - 5044:5044
+    restart: unless-stopped
+
+  kibana:
+    depends_on:
+      - elasticsearch
+    environment:
+      ELASTICSEARCH_PASSWORD: elastic
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_USERNAME: elastic
+    image: kibana:7.5.2
+    networks:
+      elk: null
+    ports:
+      - 5601:5601
+    restart: unless-stopped
