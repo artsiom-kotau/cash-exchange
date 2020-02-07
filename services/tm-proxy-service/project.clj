@@ -5,13 +5,9 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [compojure "1.6.1"]
-                 [org.slf4j/slf4j-api "1.7.30"]
-                 [org.apache.logging.log4j/log4j-core "2.13.0"]
-                 [org.apache.logging.log4j/log4j-slf4j-impl "2.13.0"]
                  [org.clojure/tools.logging "0.5.0"]
                  [org.apache.logging.log4j/log4j-core "2.13.0"]
                  [org.apache.logging.log4j/log4j-api "2.13.0"]
-                 [org.apache.logging.log4j/log4j-slf4j-impl "2.13.0"]
                  [org.clojure/data.json "0.2.7"]
                  [ring/ring-jetty-adapter "1.8.0"]
                  [ring/ring-defaults "0.3.2"]]
