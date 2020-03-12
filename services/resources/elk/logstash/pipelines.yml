@@ -1,0 +1,4 @@
+
+- pipeline.id: test_ppln
+  queue.type: persisted
+  path.config: "filebeat-processor.conf"

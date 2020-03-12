@@ -1,0 +1,14 @@
+logging.level: debug
+
+fields_under_root: true
+
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /Users/artsiom.kotau/work/pet-prj/currency-exchange/services/tm-proxy-service/logs/*.log
+    fields:
+      service: cash-exchange
+# — — — — — — — — — — Logstash output — — — — — — — — — —
+output.logstash:
+  hosts: ["localhost:5044"]
