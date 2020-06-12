@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  FunctionStorage:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: cash-exchange-functions
+
+Outputs:
+  FunctionStorage:
+    Value: !Ref FunctionStorage
+
