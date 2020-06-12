@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Parameters:
+  BankParseFunctionVersion:
+    Type: String
+
+
+Resources:
+  ParseBanksFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: !Ref FunctionStorage
+        S3Key: "service/bank-parse.zip"
+        S3ObjectVersion:
+          Ref: BankParseFunctionVersion
+
+  ParseBanksScheduleRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: "ParseBanks"
+      Description: "Schedules parse function to store new banks"
+      ScheduleExpression: "0 0 * * ? *"
+      State: "ENABLED"
+      Targets:
+        - !Ref ParseBanksFunction
+
+Outputs:
+  ParseBanksFunction:
+    Value: !Ref ParseBanksFunction
